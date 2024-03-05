@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLACKBOX - Encryption/Decryption Tool</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #333; /* Dark grey background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        #container {
+            background-color: #444; /* Darker grey container */
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Increased shadow intensity */
+            width: 800px;
+            max-width: 90%;
+            display: flex;
+            align-items: center;
+        }
+        #image-container {
+            flex: 1;
+            padding-right: 20px;
+        }
+        #image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            display: block;
+            margin: 0 auto; /* Center the image horizontally */
+            max-height: 400px; /* Set maximum height for the image */
+        }
+        #content {
+            flex: 2;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #fff; /* White text */
+            text-align: center;
+        }
+        form {
+            text-align: left;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #ddd; /* Light grey text */
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #666; /* Dark grey border */
+            border-radius: 4px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            background-color: #555; /* Dark grey input background */
+            color: #ddd; /* Light grey text */
+        }
+        button[type="button"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button[type="button"]:hover {
+            background-color: #0056b3;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #ddd; /* Light grey text */
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="image-container">
+            <!-- Update the src attribute with the new image link -->
+            <img src="https://mir-s3-cdn-cf.behance.net/projects/404/1d442170236067.Y3JvcCw4NjUsNjc2LDIwNywyMQ.jpg" alt="Data Encryption Image">
+        </div>
+        <div id="content">
+            <h1>BLACKBOX - Encryption/Decryption Tool</h1>
+            <form id="encryptionForm">
+                <label for="wish">Enter your wish encrypt or decrypt (e/d):</label>
+                <input type="text" id="wish" name="wish" required><br>
+
+                <label for="message">Enter a message:</label>
+                <input type="password" id="message" name="message" required><br>
+
+                <button type="button" onclick="performOperation()">Submit</button>
+            </form>
+
+            <div id="result"></div>
+        </div>
+    </div>
+
+    <script>
+        function performOperation() {
+            const wish = document.getElementById('wish').value;
+            const message = document.getElementById('message').value;
+
+            const resultElement = document.getElementById('result');
+
+            // Simulate sending data to your existing Python program
+            const result = communicateWithPython(wish, message);
+
+            resultElement.innerHTML = result;
+        }
+
+        function communicateWithPython(wish, message) {
+            // Simulate communication with Python backend
+            // You may use AJAX or fetch to send data to your server and get a response
+
+            // For demonstration purposes, we'll just display a placeholder result
+            return "Result: (simulated result from Python)";
+        }
+    </script>
+</body>
+</html>
